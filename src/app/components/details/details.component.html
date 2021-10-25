@@ -1,0 +1,36 @@
+<div class="main" fxLayout="row" fxLayoutGap="10">
+    <div class="img-container" fxFlex="70%">
+   <img src="{{image}}" height="100%">
+    </div>
+    <div class="card-container" fxFlex="30%">
+        <mat-card class="mat-elevation-z4">
+            <mat-card-subtitle>Marksheet</mat-card-subtitle>
+            <mat-card-title>{{details.Details.BOARD}} Board Marksheet</mat-card-title>
+            <mat-card-subtitle>{{details.Details.LEVEL}} Level</mat-card-subtitle>
+            <mat-divider inset></mat-divider>
+            <mat-card-content>
+              <h1><b>Subjects</b></h1>
+                <mat-accordion class="example-headers-align" *ngFor="let item of details.Details.subjects | keyvalue" multi>
+                    <!-- #enddocregion multi -->
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            {{item.key}}
+                          </mat-panel-title>
+                        </mat-expansion-panel-header>
+                          <mat-label>{{item.value}}</mat-label>
+                      </mat-expansion-panel>
+                </mat-accordion>
+                <br>
+                <mat-divider inset></mat-divider>
+                <h1 style="display: inline" ><b>Total : </b></h1>
+                <h1 style="display: inline"><b>{{details.Details.TOTAL_MARKS}}</b></h1>                      
+            </mat-card-content>
+            
+            <mat-card-footer>
+                
+              </mat-card-footer>
+          </mat-card>
+  
+      </div>
+  </div>

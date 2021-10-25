@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+    <a mat-button class="companyName" routerLink="">
+      <span>DocVision</span>
+    </a>
+    <span class="fill-remaining-space"></span>
+<button mat-icon-button class="icon" [matMenuTriggerFor]="menu">
+<mat-icon>menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu" [overlapTrigger]="false">
+<button mat-menu-item [routerLink]="['']">
+<mat-icon>cloud_upload</mat-icon>
+<span>Upload Images</span>
+</button>
+<button mat-menu-item [routerLink]="['review']">
+    <mat-icon>assignment</mat-icon>
+    <span>View Documents</span>
+</button>
+</mat-menu>
+</mat-toolbar>

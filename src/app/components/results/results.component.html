@@ -1,0 +1,18 @@
+
+  <div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid" fxLayoutAlign="stretch">
+      <div fxFlex="20%" *ngFor="let element of files">
+        <mat-card [ngClass]="{'clickable': element.status === 'Processed','mat-elevation-z4': true}" (click)="element.status=='Processed' && viewdetails(element.name)" >
+          <mat-card-header>
+            <mat-card-title>{{element.name.slice(0,8)}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image class="images" src="{{element.thumb}}">
+          <mat-card-footer>
+            <mat-progress-bar *ngIf="element.status=='Processing'" class="{{element.status}}"  mode="indeterminate"></mat-progress-bar>
+            <mat-progress-bar *ngIf="element.status=='Processed'" class="{{element.status}}"  mode="determinate" value="100"></mat-progress-bar>
+            <mat-progress-bar *ngIf="element.status=='Unprocessed'" class="{{element.status}}"  mode="buffer"></mat-progress-bar>
+          </mat-card-footer>
+        </mat-card>
+      </div>
+    </div>
+    </div>
