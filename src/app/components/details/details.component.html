@@ -18,7 +18,15 @@
                             {{item.key}}
                           </mat-panel-title>
                         </mat-expansion-panel-header>
-                          <mat-label>{{item.value}}</mat-label>
+
+                        <h5 class="example-headers-align" *ngFor="let sub of item.value | keyvalue" multi>
+                          <!-- #enddocregion multi -->
+                                <mat-label>
+                                  {{sub.key}} :
+                                </mat-label>
+
+                                <mat-label>{{sub.value}}</mat-label>
+                        </h5>
                       </mat-expansion-panel>
                 </mat-accordion>
                 <br>
