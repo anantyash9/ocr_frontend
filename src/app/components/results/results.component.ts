@@ -17,7 +17,7 @@ export class ResultsComponent implements OnInit {
       for (const [key, value] of Object.entries(data)) {
         this.fastapiclient.thumbnail(key).subscribe(data2=>{
 
-          let temp={name:null,status:null,thumb:null}
+        let temp={name:null,status:null,thumb:null}
         temp.name=key
         temp.status=value
         let reader = new FileReader();
@@ -33,7 +33,7 @@ export class ResultsComponent implements OnInit {
     })
   }
   viewdetails(id:string){
-    console.log("clicked");
+    console.log("clicked2");
     let first=this.fastapiclient.fileDetails(id)
     let second=this.fastapiclient.processedImage(id)
     forkJoin([first,second]).subscribe(data=>{this.fastapiclient.details=data;
