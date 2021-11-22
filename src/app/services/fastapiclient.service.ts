@@ -11,6 +11,8 @@ export class FastapiclientService {
   thumbnailURL="/api/thumbnail?fileid="
   processedImageURL="/api/processed?fileid="
   filedetailsURL="/api/filedetails?fileid="
+
+  // filedetailsURL = "http://localhost:3000/Details"  -> for json-server
   details={}
   constructor(private http: HttpClient) { }
 
@@ -33,4 +35,10 @@ thumbnail(id:any):Observable<Blob>{
 processedImage(id:any):Observable<Blob>{
   return this.http.post(this.processedImageURL+id,{},{observe:"body",responseType:"blob"})
 }
+
 }
+
+
+
+
+

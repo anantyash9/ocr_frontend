@@ -1,44 +1,159 @@
 <div class="main" fxLayout="row" fxLayoutGap="10">
-    <div class="img-container" fxFlex="70%">
-   <img src="{{image}}" height="100%">
-    </div>
-    <div class="card-container" fxFlex="30%">
-        <mat-card class="mat-elevation-z4">
-            <mat-card-subtitle>Marksheet</mat-card-subtitle>
-            <mat-card-title>{{details.Details.BOARD}} Board Marksheet</mat-card-title>
-            <mat-card-subtitle>{{details.Details.LEVEL}} Level</mat-card-subtitle>
-            <mat-divider inset></mat-divider>
-            <mat-card-content>
-              <h1><b>Subjects</b></h1>
-                <mat-accordion class="example-headers-align" *ngFor="let item of details.Details.subjects | keyvalue" multi>
-                    <!-- #enddocregion multi -->
-                      <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                          <mat-panel-title>
-                            {{item.key}}
-                          </mat-panel-title>
-                        </mat-expansion-panel-header>
-
-                        <h5 class="example-headers-align" *ngFor="let sub of item.value | keyvalue" multi>
-                          <!-- #enddocregion multi -->
-                                <mat-label>
-                                  {{sub.key}} :
-                                </mat-label>
-
-                                <mat-label>{{sub.value}}</mat-label>
-                        </h5>
-                      </mat-expansion-panel>
-                </mat-accordion>
-                <br>
-                <mat-divider inset></mat-divider>
-                <h1 style="display: inline" ><b>Total : </b></h1>
-                <h1 style="display: inline"><b>{{details.Details.TOTAL_MARKS}}</b></h1>                      
-            </mat-card-content>
-            
-            <mat-card-footer>
-                
-              </mat-card-footer>
-          </mat-card>
-  
-      </div>
+  <div class="img-container" fxFlex="70%">
+    <img src="{{image}}" height="100%">
   </div>
+
+  <div class="card-container" fxFlex="30%" *ngIf="university && !grand_total">
+    <mat-card class="mat-elevation-z4">
+      <mat-card-subtitle>Marksheet</mat-card-subtitle>
+
+      <mat-card-title>{{details.Details.University}} University Marksheet</mat-card-title>
+      <mat-divider inset></mat-divider>
+      <mat-card-content>
+        <h1><b>Subjects</b></h1>
+        <mat-accordion class="example-headers-align" *ngFor="let item of details.Details.Subjects ; let i = index" multi>
+          <!-- #enddocregion multi -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{item}} 
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <h5 class="example-headers-align" >
+              <!-- #enddocregion multi -->
+            <mat-label><b>GRADE: </b></mat-label>
+            <mat-label>
+              {{details.Details.Grade[i]}}
+            </mat-label>
+
+            <!-- <mat-label>{{sub.value}}</mat-label> -->
+            </h5>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <br>
+        <mat-divider inset></mat-divider>
+        <h1 style="display: inline"><b>SGPA: </b></h1>
+        <h1 style="display: inline"><b>{{details.Details.SGPA}}</b></h1><br>
+        <h1 style="display: inline"><b>CGPA: </b></h1>
+        <h1 style="display: inline"><b>{{details.Details.CGPA}}</b></h1>
+      </mat-card-content>
+
+      <mat-card-footer>
+
+      </mat-card-footer>
+    </mat-card>
+
+  </div>
+
+
+
+  <div class="card-container" fxFlex="30%" *ngIf="grand_total">
+
+    <mat-card class="mat-elevation-z4">
+      <mat-card-subtitle>Marksheet</mat-card-subtitle>
+
+      <mat-card-title>{{details.Details.UNIVERSITY}} University Marksheet</mat-card-title>
+      <mat-divider inset></mat-divider>
+      <mat-card-content>
+        <h1><b>Subjects</b></h1>
+        <mat-accordion class="example-headers-align" *ngFor="let item of details.Details.SUBJECTS | keyvalue" multi>
+          <!-- #enddocregion multi -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{item.key}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <h5 class="example-headers-align" *ngFor="let sub of item.value | keyvalue" multi>
+              <!-- #enddocregion multi -->
+              <mat-label>
+                {{sub.key}} :
+              </mat-label>
+
+              <mat-label>{{sub.value}}</mat-label>
+            </h5>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <br>
+        <mat-divider inset></mat-divider>
+        <h1 style="display: inline"><b>RESULT: </b></h1>
+        <h1 style="display: inline">{{details.Details.RESULT}}</h1><br>
+        <h1 style="display: inline"><b>GRAND_TOTAL : </b></h1>
+        <h1 style="display: inline">{{details.Details.GRAND_TOTAL}}</h1>
+      </mat-card-content>
+
+      <mat-card-footer>
+
+      </mat-card-footer>
+    </mat-card>
+
+  </div>
+
+
+  <div class="card-container" fxFlex="30%" *ngIf="branch">
+
+    <mat-card class="mat-elevation-z4">
+      <mat-card-subtitle>Degree Certificate</mat-card-subtitle>
+
+      <mat-card-title>{{details.Details.University}} University Degree Certificate</mat-card-title>
+      <mat-card-subtitle><b>{{details.Details.Branch}} Branch</b></mat-card-subtitle>
+      <mat-divider inset></mat-divider>
+      
+        <mat-divider inset></mat-divider>
+        <h1 style="display: inline"><b>RESULT: </b></h1>
+        <h1 style="display: inline">{{details.Details.Result}}</h1><br>
+        <h1 style="display: inline"><b>USN : </b></h1>
+        <h1 style="display: inline">{{details.Details.USN}}</h1>
+
+      <mat-card-footer>
+
+      </mat-card-footer>
+    </mat-card>
+
+  </div>
+
+
+  <div class="card-container" fxFlex="30%" *ngIf="board">
+
+    <mat-card class="mat-elevation-z4">
+      <mat-card-subtitle>Marksheet</mat-card-subtitle>
+
+      <mat-card-title>{{details.Details.BOARD}} Board Marksheet</mat-card-title>
+      <mat-card-subtitle>{{details.Details.LEVEL}} Level</mat-card-subtitle>
+      <mat-divider inset></mat-divider>
+      <mat-card-content>
+        <h1><b>Subjects</b></h1>
+        <mat-accordion class="example-headers-align" *ngFor="let item of details.Details.subjects | keyvalue" multi>
+          <!-- #enddocregion multi -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{item.key}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <h5 class="example-headers-align" *ngFor="let sub of item.value | keyvalue" multi>
+              <!-- #enddocregion multi -->
+              <mat-label>
+                {{sub.key}} :
+              </mat-label>
+
+              <mat-label>{{sub.value}}</mat-label>
+            </h5>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <br>
+        <mat-divider inset></mat-divider>
+        <h1 style="display: inline"><b>Total : </b></h1>
+        <h1 style="display: inline"><b>{{details.Details.TOTAL_MARKS}}</b></h1>
+      </mat-card-content>
+
+      <mat-card-footer>
+
+      </mat-card-footer>
+    </mat-card>
+
+  </div>
+</div>
