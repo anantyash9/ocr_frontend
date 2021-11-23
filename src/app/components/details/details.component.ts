@@ -66,7 +66,7 @@ export class DetailsComponent implements OnInit {
 
     
   }
-  console.log("last"+ this.details);
+ 
 
 }
 
