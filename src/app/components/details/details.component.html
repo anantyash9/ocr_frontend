@@ -11,23 +11,24 @@
       <mat-divider inset></mat-divider>
       <mat-card-content>
         <h1><b>Subjects</b></h1>
-        <mat-accordion class="example-headers-align" *ngFor="let item of details.Details.Subjects ; let i = index" multi>
+        <mat-accordion class="example-headers-align" *ngFor="let item of details.Details.Subjects ; let i = index"
+          multi>
           <!-- #enddocregion multi -->
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{item}} 
+                {{item}}
               </mat-panel-title>
             </mat-expansion-panel-header>
 
-            <h5 class="example-headers-align" >
+            <h5 class="example-headers-align">
               <!-- #enddocregion multi -->
-            <mat-label><b>GRADE: </b></mat-label>
-            <mat-label>
-              {{details.Details.Grade[i]}}
-            </mat-label>
+              <mat-label><b>GRADE: </b></mat-label>
+              <mat-label>
+                {{details.Details.Grade[i]}}
+              </mat-label>
 
-            <!-- <mat-label>{{sub.value}}</mat-label> -->
+              <!-- <mat-label>{{sub.value}}</mat-label> -->
             </h5>
           </mat-expansion-panel>
         </mat-accordion>
@@ -57,7 +58,8 @@
       <mat-divider inset></mat-divider>
       <mat-card-content>
         <h1><b>Subjects</b></h1>
-        <mat-accordion class="example-headers-align" *ngFor="let item of details.Details.SUBJECTS | keyvalue" multi>
+     
+        <mat-accordion class="example-headers-align" *ngFor="let item of details.Details.SUBJECTS | keyvalue " multi>
           <!-- #enddocregion multi -->
           <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -69,7 +71,7 @@
             <h5 class="example-headers-align" *ngFor="let sub of item.value | keyvalue" multi>
               <!-- #enddocregion multi -->
               <mat-label>
-                {{sub.key}} :
+                {{sub.key}}:
               </mat-label>
 
               <mat-label>{{sub.value}}</mat-label>
@@ -100,12 +102,12 @@
       <mat-card-title>{{details.Details.University}} University Degree Certificate</mat-card-title>
       <mat-card-subtitle><b>{{details.Details.Branch}} Branch</b></mat-card-subtitle>
       <mat-divider inset></mat-divider>
-      
-        <mat-divider inset></mat-divider>
-        <h1 style="display: inline"><b>RESULT: </b></h1>
-        <h1 style="display: inline">{{details.Details.Result}}</h1><br>
-        <h1 style="display: inline"><b>USN : </b></h1>
-        <h1 style="display: inline">{{details.Details.USN}}</h1>
+
+      <mat-divider inset></mat-divider>
+      <h1 style="display: inline"><b>RESULT: </b></h1>
+      <h1 style="display: inline">{{details.Details.Result}}</h1><br>
+      <h1 style="display: inline"><b>USN : </b></h1>
+      <h1 style="display: inline">{{details.Details.USN}}</h1>
 
       <mat-card-footer>
 
